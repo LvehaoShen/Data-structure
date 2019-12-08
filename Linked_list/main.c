@@ -10,7 +10,7 @@ int main(void)
 	for (int i = 0; i != 4; ++i)
 		AddNode(L);
 	linked_list find = FindNode(L, 32);
-	//MakeEmpty(L);
+	MakeEmpty(L);
 	
 	return 0;
 }	
