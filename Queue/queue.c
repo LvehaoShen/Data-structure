@@ -3,51 +3,52 @@
 #include <stdbool.h>
 #include<memory.h>
 #include "queue.h"
-bool IsEmpty(Queue L)
+bool IsEmpty(PtrToQueue L)
 {
-	return L->next == NULL;
+	return L->front==L->rear;
 }
-Queue MakeEmpty(Queue L)
-{
+PtrToQueue MakeEmpty(PtrToQueue L)
+{ 
 	while (!IsEmpty(L))
-		L=Dequeue(L);
+		Dequeue(L);
 	return L;
 }
-Queue CreateQueue(Queue L)
-{
-	L->ele = 0;
-	Queue temp = malloc(sizeof(Node));
-	temp->ele = rand()%54;
+PtrToQueue CreateQueue(PtrToQueue L)
+{	
+	PtrToNode head = malloc(sizeof(QueueNode));
+	head->ele = 0;
+	head->next = NULL;
+	L->front= head;
+	L->rear = head;
+	return L;
+}
+PtrToQueue Enqueue(PtrToQueue L)
+{	
+	PtrToNode temp = malloc(sizeof(QueueNode));
+	temp->ele = rand() % 54;
 	temp->next = NULL;
-	L->next = temp;
+	L->rear->next = temp;
+	L->rear = temp;
 	return L;
 }
-Queue Enqueue(Queue L)
-{
-	if (L->next == NULL)
-		L = CreateQueue(L);
+PtrToNode Dequeue(PtrToQueue L)
+{	
+	PtrToNode temp = L->front->next;
+	if (temp->next != NULL)
+	{
+		L->front->next = temp->next;
+		temp->next = NULL;
+	}
 	else
 	{
-		Queue guide = L;		
-		while (guide->next != NULL)
-			guide = guide->next;
-		Queue temp = malloc(sizeof(Node));
-		temp->ele = rand()%54;
-		temp->next = NULL;
-		guide->next = temp;
-	}
-	return L;
-}
-Queue Dequeue(Queue L)
-{	
-	Queue temp = L->next;
-	L->next = temp->next;
-	temp->next = NULL;
+		L->rear = L->front;
+		L->front->next = NULL;
+	}	
 	return temp;
 }
-Queue FindNode(Queue L, int i)
+PtrToNode FindNode(PtrToQueue L, int i)
 {
-	Queue guide = L->next;
+	PtrToNode guide = L->front;
 	while (guide != NULL)
 	{
 		if (guide->ele == i)
