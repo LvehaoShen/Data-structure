@@ -5,21 +5,11 @@
 #include "queue.h"
 int main(void)
 {	srand((unsigned)time(NULL));
-	Queue L = malloc(sizeof(Node));
-	L = CreateQueue(L);
-	int y = 0;
-	int x = 0;
-	while (y!= 100) {
-		for (int i = 0; i!=2; ++i)
-			Enqueue(L);
-		Queue find = FindNode(L, 32);
-		if (find != NULL)
-			x++;
-		y++;
-		MakeEmpty(L);
-	}
-	double z = (double)x / (double)y;
-	printf("%lf", z);
-	printf(" ");
+	PtrToQueue queue = malloc(sizeof(Queue));
+	queue = CreateQueue(queue);
+	for (int i = 0; i!=4; ++i)
+		Enqueue(queue);
+	PtrToNode find = FindNode(queue, 32);
+	MakeEmpty(queue);
 	return 0;
-}	
+}
