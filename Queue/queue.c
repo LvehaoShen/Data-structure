@@ -33,6 +33,8 @@ PtrToQueue Enqueue(PtrToQueue L)
 }
 PtrToNode Dequeue(PtrToQueue L)
 {	
+	if (IsEmpty(L))
+		return NULL;
 	PtrToNode temp = L->front->next;
 	if (temp->next != NULL)
 	{
