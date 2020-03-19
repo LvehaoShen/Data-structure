@@ -19,10 +19,10 @@ struct TreeNode{
 	Tree Right;
 };
 void PreCreatTree(Tree* T);
-void PreOrderTraveral(Tree p);
-void InOrderTraveral(Tree p);
-void PostOrderTraveral(Tree p);
+void PreOrderTraversal(Tree p);
+void InOrderTraversal(Tree p);
+void PostOrderTraversal(Tree p);
 void CreatQueue(Queue** q);
 void EnQueue(Queue* q,Tree T);
 Tree DeQueue(Queue* q);
-void LevelOrderTraveral(Tree p);
+void LevelOrderTraversal(Tree p);
