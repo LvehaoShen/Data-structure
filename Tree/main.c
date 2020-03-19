@@ -11,12 +11,12 @@ int main(void)
 	Queue* queue = NULL;
 	CreatQueue(&queue);
 	PreCreatTree(&x);
-	PreOrderTraveral(x);
+	PreOrderTraversal(x);
 	printf("\n");
-	InOrderTraveral(x);
+	InOrderTraversal(x);
 	printf("\n");
-	PostOrderTraveral(x);
+	PostOrderTraversal(x);
 	printf("\n");
-	LevelOrderTraveral(x);
+	LevelOrderTraversal(x);
 	return 0;
 }
