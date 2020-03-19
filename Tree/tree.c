@@ -9,47 +9,47 @@ void PreCreatTree(Tree* T)
 	char ch;
 	(*T)->Left = NULL;
 	(*T)->Right = NULL;
-	printf("ÊäÈë½áµãµÄÖµ");
+	printf("è¾“å…¥ç»“ç‚¹çš„å€¼");
 	scanf("%d", &(*T)->ele);
 	while (getchar() != '\n')
 		continue;
-	printf("ÊÇ·ñ¼ÌÐøÔö¼Ó×ó½áµã£¬°´qÍË³ö");
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å·¦ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
 		PreCreatTree(&(*T)->Left);		
-	printf("ÊÇ·ñ¼ÌÐøÔö¼ÓÓÒ½áµã£¬°´qÍË³ö");
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å³ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
 		PreCreatTree(&(*T)->Right);
 }
-void PreOrderTraveral(Tree p)
+void PreOrderTraversal(Tree p)
 {
 	if (p)
 	{
 		printf("%d ", p->ele);
-		PreOrderTraveral(p->Left);
-		PreOrderTraveral(p->Right);
+		PreOrderTraversal(p->Left);
+		PreOrderTraversal(p->Right);
 	}
 }
-void InOrderTraveral(Tree p)
+void InOrderTraversal(Tree p)
 {
 	if (p)
 	{		
-		InOrderTraveral(p->Left);
+		InOrderTraversal(p->Left);
 		printf("%d ", p->ele);
-		InOrderTraveral(p->Right);
+		InOrderTraversal(p->Right);
 	}
 }
-void PostOrderTraveral(Tree p)
+void PostOrderTraversal(Tree p)
 {
 	if (p)
 	{
-		PostOrderTraveral(p->Left);
-		PostOrderTraveral(p->Right);
+		PostOrderTraversal(p->Left);
+		PostOrderTraversal(p->Right);
 		printf("%d ", p->ele);
 	}
 }
@@ -82,7 +82,7 @@ Tree DeQueue(Queue* q)
 	tempnode->next = NULL;
 	return temp;
 }
-void LevelOrderTraveral(Tree p)
+void LevelOrderTraversal(Tree p)
 {
 	Tree temp = NULL;
 	Queue* queue = NULL;
