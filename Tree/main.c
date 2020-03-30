@@ -9,8 +9,8 @@ int main(void)
 {
 	Tree x = NULL;
 	Queue* queue = NULL;
-	CreatQueue(&queue);
-	PreCreatTree(&x);
+	CreateQueue(&queue);
+	PreCreateTree(&x);
 	PreOrderTraversal(x);
 	printf("\n");
 	InOrderTraversal(x);
