@@ -20,7 +20,7 @@ struct TreeNode{
 	int Height;
 };
 int Max(int i, int j);
-void PreCreatTree(AvlTree* T);
+void PreCreateTree(AvlTree* T);
 void PreOrderTraversal(AvlTree p);
 void InOrderTraversal(AvlTree p);
 void PostOrderTraversal(AvlTree p);
