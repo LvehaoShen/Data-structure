@@ -18,11 +18,11 @@ struct TreeNode{
 	Tree Left;
 	Tree Right;
 };
-void PreCreatTree(Tree* T);
+void PreCreateTree(Tree* T);
 void PreOrderTraversal(Tree p);
 void InOrderTraversal(Tree p);
 void PostOrderTraversal(Tree p);
-void CreatQueue(Queue** q);
+void CreateQueue(Queue** q);
 void EnQueue(Queue* q,Tree T);
 Tree DeQueue(Queue* q);
 void LevelOrderTraversal(Tree p);
