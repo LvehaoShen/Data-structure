@@ -11,7 +11,7 @@ int main(void)
 	srand(time(NULL));
 	Tree x = NULL;
 	Queue* queue = NULL;
-	CreatQueue(&queue);
+	CreateQueue(&queue);
 	for (int i = 1; i <= 20; ++i)
 		x=Insert(rand()%24, x);
 	PreOrderTraversal(x);
