@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <memory.h>
 #include "tree.h"
-void PreCreatTree(Tree* T)
+void PreCreateTree(Tree* T)
 {
 	*T = (Tree)malloc(sizeof(TreeNode));
 	char ch;
@@ -18,13 +18,13 @@ void PreCreatTree(Tree* T)
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Left);		
+		PreCreateTree(&(*T)->Left);		
 	printf("是否继续增加右结点，按q退出");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Right);
+		PreCreateTree(&(*T)->Right);
 }
 void PreOrderTraversal(Tree p)
 {
@@ -53,7 +53,7 @@ void PostOrderTraversal(Tree p)
 		printf("%d ", p->ele);
 	}
 }
-void CreatQueue(Queue** q)
+void CreateQueue(Queue** q)
 {
 	QueueNode* head = malloc(sizeof(QueueNode));
 	head->next = NULL;
@@ -86,7 +86,7 @@ void LevelOrderTraversal(Tree p)
 {
 	Tree temp = NULL;
 	Queue* queue = NULL;
-	CreatQueue(&queue);
+	CreateQueue(&queue);
 	if (p)
 		EnQueue(queue, p);
 	else
