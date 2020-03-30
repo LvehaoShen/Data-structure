@@ -3,28 +3,28 @@
 #include <stdbool.h>
 #include <memory.h>
 #include "searchtree.h"
-void PreCreatTree(Tree* T)
+void PreCreateTree(Tree* T)
 {
 	*T = (Tree)malloc(sizeof(TreeNode));
 	char ch;
 	(*T)->Left = NULL;
 	(*T)->Right = NULL;
-	printf("ÊäÈë½áµãµÄÖµ");
+	printf("è¾“å…¥ç»“ç‚¹çš„å€¼");
 	scanf("%d", &(*T)->ele);
 	while (getchar() != '\n')
 		continue;
-	printf("ÊÇ·ñ¼ÌÐøÔö¼Ó×ó½áµã£¬°´qÍË³ö");
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å·¦ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Left);		
-	printf("ÊÇ·ñ¼ÌÐøÔö¼ÓÓÒ½áµã£¬°´qÍË³ö");
+		PreCreateTree(&(*T)->Left);		
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å³ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Right);
+		PreCreateTree(&(*T)->Right);
 }
 void PreOrderTraversal(Tree p)
 {
@@ -53,7 +53,7 @@ void PostOrderTraversal(Tree p)
 		printf("%d ", p->ele);
 	}
 }
-void CreatQueue(Queue** q)
+void CreateQueue(Queue** q)
 {
 	QueueNode* head = malloc(sizeof(QueueNode));
 	head->next = NULL;
@@ -86,7 +86,7 @@ void LevelOrderTraversal(Tree p)
 {
 	Tree temp = NULL;
 	Queue* queue = NULL;
-	CreatQueue(&queue);
+	CreateQueue(&queue);
 	if (p)
 		EnQueue(queue, p);
 	else
@@ -112,7 +112,7 @@ Tree Find(int x, Tree T)
 		else
 			return T;
 	}
-	printf("ÔªËØÎ´ÕÒµ½\n");
+	printf("å…ƒç´ æœªæ‰¾åˆ°\n");
 	return NULL;
 }
 Tree FindMin(Tree T)
@@ -151,7 +151,7 @@ Tree Delete(int x, Tree T)
 {
 	Tree temp = NULL;
 	if (T == NULL)
-		printf("´ýÉ¾³ýÔªËØÎ´ÕÒµ½\n");
+		printf("å¾…åˆ é™¤å…ƒç´ æœªæ‰¾åˆ°\n");
 	else if(x > T->ele)
 	{
 		T->Right = Delete(x, T->Right);
