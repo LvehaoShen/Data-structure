@@ -10,28 +10,28 @@ int Max(int i, int j)
 	else
 		return j;
 }
-void PreCreatTree(AvlTree* T)
+void PreCreateTree(AvlTree* T)
 {
 	*T = (AvlTree)malloc(sizeof(TreeNode));
 	char ch;
 	(*T)->Left = NULL;
 	(*T)->Right = NULL;
-	printf("ÊäÈë½áµãµÄÖµ");
+	printf("è¾“å…¥ç»“ç‚¹çš„å€¼");
 	scanf("%d", &(*T)->Elem);
 	while (getchar() != '\n')
 		continue;
-	printf("ÊÇ·ñ¼ÌÐøÔö¼Ó×ó½áµã£¬°´qÍË³ö");
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å·¦ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Left);		
-	printf("ÊÇ·ñ¼ÌÐøÔö¼ÓÓÒ½áµã£¬°´qÍË³ö");
+		PreCreateTree(&(*T)->Left);		
+	printf("æ˜¯å¦ç»§ç»­å¢žåŠ å³ç»“ç‚¹ï¼ŒæŒ‰qé€€å‡º");
 	scanf("%c", &ch);
 	while (getchar() != '\n')
 		continue;
 	if (ch!='q')
-		PreCreatTree(&(*T)->Right);
+		PreCreateTree(&(*T)->Right);
 }
 void PreOrderTraversal(AvlTree p)
 {
@@ -121,7 +121,7 @@ AvlTree Insert(int x,AvlTree T)
 	{
 		T = malloc(sizeof(TreeNode));
 		if (T == NULL)
-			printf("¶Ñ¿Õ¼äÒÑÂú");
+			printf("å †ç©ºé—´å·²æ»¡");
 		else
 		{
 			T->Elem = x;
