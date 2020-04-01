@@ -44,103 +44,38 @@ int DeleteMax(MaxHeap H)
 		exit(false);
 	}
 	int Maxitem = H->data[1];
-	int x = H->data[H->size--];
-	int parent = 1;
-	int child = parent * 2;
-	int item = 0;
-	for ( ; ; child = parent*2 )
+	int LastItem = H->data[H->size--];
+	int parent;
+	int child;
+	for ( parent = 1 ; parent * 2 <= H->size ; parent = child )
 	{
-		if (child <= H->size)
-		{
-			if (child + 1 <= H->size)
-			{
-				if (H->data[child] >= H->data[child + 1])
-				{
-					item = H->data[child];
-					parent = child;
-				}
-				else
-				{
-					item = H->data[child + 1];
-					parent = child + 1;
-				}
-				if (item >= x)
-					H->data[parent / 2] = item;
-				else
-				{
-					H->data[parent / 2] = x;
-					break;
-				}				
-			}	
-			else
-			{
-				item = H->data[child];
-				parent = child;
-				if (item >= x)
-					H->data[parent / 2] = item;
-				else
-				{
-					H->data[parent / 2] = x;
-					break;
-				}
-			}
-		}
+		child = parent * 2;
+		if (child != H->size && H->data[child+1] > H->data[child])
+			child++;
+		if (LastItem < H->data[child])
+			H->data[parent] = H->data[child];
 		else
-		{
-			H->data[parent] = x;
 			break;
-		}
 	}
+	H->data[parent] = LastItem;
 	return Maxitem;
 }
 void PercDown(MaxHeap H, int p)
 {
 	int x = H->data[p];
-	int item;
-	int child = p * 2;
-	for (;;child = p * 2)
+	int parent;
+	int child;
+	for (parent = p; parent * 2 <= H->size; parent = child)
 	{
-		if (child <= H->size)
-		{
-			if (child + 1 <= H->size)
-			{
-				if (H->data[child] >= H->data[child + 1])
-				{
-					item = H->data[child];
-					p = child;
-				}
-				else
-				{
-					item = H->data[child + 1];
-					p = child + 1;
-				}
-				if (x <= item)
-					H->data[p / 2] = item;
-				else
-				{
-					H->data[p / 2] = x;
-					return;
-				}					
-			}
-			else
-			{
-				p = child;
-				if (x <= H->data[child])
-					H->data[p / 2] = H->data[child];
-				else
-				{
-					H->data[p / 2] = x;
-					return;
-				}
-					
-			}
-		}
+		child = parent * 2;
+		if (child != H->size && H->data[child + 1] > H->data[child])
+			child++;
+		if (x < H->data[child])
+			H->data[parent] = H->data[child];
 		else
-		{
-			H->data[p] = x;
-			return;
-		}	
-	}	
+			break;
+	}
+	H->data[parent] = x;
 }
 void BuildHeap(MaxHeap H)
 {
