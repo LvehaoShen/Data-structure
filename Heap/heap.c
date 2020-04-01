@@ -9,7 +9,7 @@ MaxHeap CreateHeap(int maxsize)
 	H->capacity = maxsize;
 	H->size = 0;
 	H->data = malloc(sizeof(int) * (maxsize + 1));
-	H->data[0] = INT_MAX;//½¨Á¢ÉÚ±ø
+	H->data[0] = INT_MAX;//Â½Â¨ÃÂ¢Ã‰ÃšÂ±Ã¸
 	return H;
 }
 bool IsEmpty(MaxHeap H)
@@ -30,19 +30,9 @@ bool Insert(MaxHeap H, int x)
 	else
 	{
 		int position = ++H->size;
-		for (int parent = position / 2; parent >= 0; parent /= 2)
-		{
-			if (H->data[parent] >= x)
-			{
-				H->data[position] = x;
-				break;		
-			}
-			else
-			{
-				H->data[position] = H->data[parent];
-				position /= 2;
-			}
-		}
+		for (; H->data[position / 2] < x; position /= 2)
+				H->data[position] = H->data[position/2];
+		H->data[position] = x;
 		return true;
 	}
 }
