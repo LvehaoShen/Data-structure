@@ -18,6 +18,6 @@ struct MGraphNode {
 	int Ndege;
 	int weight[MAXVER][MAXVER];
 };
-MGraph CreateMgraph(int VertexNum);
-void InsertEdge(MGraph Graph, Edge E);
-MGraph BuildMgraph();
+MGraph CreateMGraph(int VertexNum);
+void InsertEdgeMGraph(MGraph Graph, Edge E);
+MGraph BuildMGraph();
