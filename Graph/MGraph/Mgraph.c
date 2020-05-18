@@ -12,7 +12,7 @@ MGraph CreateMGraph(int VertexNum)
 	}
 	MGraph Graph = malloc(sizeof(MGraphNode));
 	Graph->Nvertex = VertexNum;
-	Graph->Ndege = 0;
+	Graph->Nedge= 0;
 	for (int i = 0; i < Graph->Nvertex; ++i)
 	{
 		for (int j = 0; j < Graph->Nvertex; ++j)
@@ -36,11 +36,11 @@ MGraph BuildMGraph()
 	scanf("%d", &VertexNum);
 	Graph = CreateMGraph(VertexNum);
 	printf("请输入边的个数：\n");
-	scanf("%d", &Graph->Ndege);
-	if (Graph->Ndege >= 0)
+	scanf("%d", &Graph->Nedge);g
+	if (Graph->Nedge >= 0)
 	{
 		E = malloc(sizeof(EdgeNode));
-		for (int i = 0; i < Graph->Ndege; ++i)
+		for (int i = 0; i < Graph->Nedge; ++i)
 		{
 			printf("请输入边的起点终点及权值：\n");
 			scanf("%d %d %d", &E->v1, &E->v2, &E->weight);
