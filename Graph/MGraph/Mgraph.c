@@ -17,7 +17,7 @@ MGraph CreateMgraph(int VertexNum)
 	{
 		for (int j = 0; j < Graph->Nvertex; ++j)
 		{
-			Graph->weight[i][j] = 0;
+			Graph->weight[i][j] = INF;
 		}
 	}
 	return Graph;
@@ -25,24 +25,24 @@ MGraph CreateMgraph(int VertexNum)
 void InsertEdge(MGraph Graph, Edge E)
 {
 	Graph->weight[E->v1][E->v2] = E->weight;
-	Graph->weight[E->v2][E->v1] = E->weight;//ÎÞÏòÍ¼¼ÓÉÏ´Ë¾ä
+	Graph->weight[E->v2][E->v1] = E->weight;//æ— å‘å›¾åŠ ä¸Šæ­¤å¥
 }
 MGraph BuildMgraph()
 {
 	MGraph Graph = NULL;
 	Edge E = NULL;
 	int VertexNum;
-	printf("ÇëÊäÈë¶¥µãµÄ¸öÊý£º\n");
+	printf("è¯·è¾“å…¥é¡¶ç‚¹çš„ä¸ªæ•°ï¼š\n");
 	scanf("%d", &VertexNum);
 	Graph = CreateMgraph(VertexNum);
-	printf("ÇëÊäÈë±ßµÄ¸öÊý£º\n");
+	printf("è¯·è¾“å…¥è¾¹çš„ä¸ªæ•°ï¼š\n");
 	scanf("%d", &Graph->Ndege);
 	if (Graph->Ndege >= 0)
 	{
 		E = malloc(sizeof(EdgeNode));
 		for (int i = 0; i < Graph->Ndege; ++i)
 		{
-			printf("ÇëÊäÈë±ßµÄÆðµãÖÕµã¼°È¨Öµ£º\n");
+			printf("è¯·è¾“å…¥è¾¹çš„èµ·ç‚¹ç»ˆç‚¹åŠæƒå€¼ï¼š\n");
 			scanf("%d %d %d", &E->v1, &E->v2, &E->weight);
 			InsertEdge(Graph, E);
 		}
