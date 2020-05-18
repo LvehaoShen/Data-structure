@@ -1,6 +1,7 @@
 #pragma once
 #include<stdbool.h>
 #define MAXVER 100
+#define INF 65535
 typedef struct EdgeNode EdgeNode;
 typedef struct EdgeNode* Edge;
 typedef struct MGraphNode MGraphNode;
