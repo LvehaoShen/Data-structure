@@ -10,7 +10,7 @@ void Init(set S)
 	for (i = 10; i > 0; i--)
 		S[i] = -1;
 }
-void Setunion(set S, SetType root1, SetType root2)
+void Setunion(set S, SetType root1, SetType root2)//root1和root2是根节点
 {
 	if (S[root2] < S[root1])
 		S[root1] = root2;
