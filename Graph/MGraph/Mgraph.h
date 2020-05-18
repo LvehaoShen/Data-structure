@@ -15,7 +15,7 @@ struct EdgeNode
 };
 struct MGraphNode {
 	int Nvertex;
-	int Ndege;
+	int Nedge;
 	int weight[MAXVER][MAXVER];
 };
 MGraph CreateMGraph(int VertexNum);
