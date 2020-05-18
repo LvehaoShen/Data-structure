@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <memory.h>
-#include "graph.h"
-MGraph CreateMgraph(int VertexNum)
+#include "Mgraph.h"
+MGraph CreateMGraph(int VertexNum)
 {
 	if (VertexNum <= 0)
 	{
@@ -22,19 +22,19 @@ MGraph CreateMgraph(int VertexNum)
 	}
 	return Graph;
 }
-void InsertEdge(MGraph Graph, Edge E)
+void InsertEdgeMGraph(MGraph Graph, Edge E)
 {
 	Graph->weight[E->v1][E->v2] = E->weight;
 	Graph->weight[E->v2][E->v1] = E->weight;//无向图加上此句
 }
-MGraph BuildMgraph()
+MGraph BuildMGraph()
 {
 	MGraph Graph = NULL;
 	Edge E = NULL;
 	int VertexNum;
 	printf("请输入顶点的个数：\n");
 	scanf("%d", &VertexNum);
-	Graph = CreateMgraph(VertexNum);
+	Graph = CreateMGraph(VertexNum);
 	printf("请输入边的个数：\n");
 	scanf("%d", &Graph->Ndege);
 	if (Graph->Ndege >= 0)
@@ -44,7 +44,7 @@ MGraph BuildMgraph()
 		{
 			printf("请输入边的起点终点及权值：\n");
 			scanf("%d %d %d", &E->v1, &E->v2, &E->weight);
-			InsertEdge(Graph, E);
+			InsertEdgeMGraph(Graph, E);
 		}
 	}
 	return Graph;
