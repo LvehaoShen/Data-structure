@@ -7,7 +7,7 @@
 #include "Mgraph.h"
 int main()
 {
-	MGraph Graph = BuildMgraph();
+	MGraph Graph = BuildMGraph();
 	return 0;
 }
 
