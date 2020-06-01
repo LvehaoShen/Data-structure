@@ -36,7 +36,7 @@ MGraph BuildMGraph()
 	scanf("%d", &VertexNum);
 	Graph = CreateMGraph(VertexNum);
 	printf("请输入边的个数：\n");
-	scanf("%d", &Graph->Nedge);g
+	scanf("%d", &Graph->Nedge);
 	if (Graph->Nedge >= 0)
 	{
 		E = malloc(sizeof(EdgeNode));
